@@ -7,8 +7,12 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <div *ngIf="articles">
+    <ion-card *ngFor="let article of articles.articles" (click)="goToDetails(article)">
+        <ion-card-header>
+          <ion-card-title>{{ article.title }}</ion-card-title>
+        </ion-card-header>
+        <p>Source : {{ article.source.name }}</p>
+      </ion-card>
   </div>
 </ion-content>
